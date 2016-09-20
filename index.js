@@ -117,7 +117,8 @@ var defaultOptions = {
   index_trim: true,
   index_unique: true,
   index_required: false,
-  index_sparse: false
+  index_sparse: false,
+  index_node_property: false
 };
 
 module.exports = function(slugFields, options) {
@@ -130,7 +131,7 @@ module.exports = function(slugFields, options) {
   return (function(schema) {
     if (options.addField) {
       var schemaField = {};
-      schemaField[options.field] = {type: options.index_type, default: options.index_default, trim: options.index_trim, index: options.index, unique: options.index_unique, required: options.index_required, sparse: options.index_sparse};
+      schemaField[options.field] = {type: options.index_type, default: options.index_default, trim: options.index_trim, index: options.index, unique: options.index_unique, required: options.index_required, sparse: options.index_sparse, nodeProperty: options.index_node_property};
       schema.add(schemaField);
     }
 
